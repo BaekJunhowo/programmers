@@ -1,0 +1,38 @@
+def solution(babbling):
+    answer = 0
+    words = ['aya', 'ye', 'woo', 'ma']
+    
+    for b in babbling:
+        for j in range(4):
+            if b.find(words[j]) != -1:
+                b = b.replace(words[j], '', 1)
+                
+        if len(b) < 1:
+            answer += 1
+    return answer
+
+def solution(babbling):
+    answer = 0
+    words = ['aya', 'ye', 'woo', 'ma']
+    
+    for b in babbling:
+        for word in words:
+            if b.find(word) != -1:
+                b = b.replace(word, ' ', 1)
+                
+        if b.isspace():
+            answer += 1
+    return answer
+
+def solution(babbling):
+    answer = 0
+    words = ['aya', 'ye', 'woo', 'ma']
+    
+    for b in babbling:
+        for word in words:
+            if word * 2 not in b:
+                b = b.replace(word, ' ')
+                
+        if b.isspace():
+            answer += 1
+    return answer

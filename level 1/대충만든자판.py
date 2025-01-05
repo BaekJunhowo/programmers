@@ -1,0 +1,38 @@
+def solution(keymap, targets):
+    answer = []
+    
+    for target in targets:
+        idx = 0
+        for t in target:
+            tmp = []
+            for k in keymap:
+                if k.find(t) != -1:
+                    tmp.append(k.find(t))
+            
+            if len(tmp) < 1:
+                return [-1]
+            
+            idx += min(tmp) + 1
+        
+        answer.append(idx)
+    return answer
+
+def solution(keymap, targets):
+    answer = []
+    for target in targets:
+        idx = 0
+        for t in target:
+            tmp = []
+            for k in keymap:
+                pos = k.find(t)
+                if pos != -1:
+                    tmp.append(pos)
+            
+            if not tmp:
+                idx = -1
+                break
+            else:
+                idx += min(tmp) + 1
+        
+        answer.append(idx)
+    return answer

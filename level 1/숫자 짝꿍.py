@@ -1,0 +1,57 @@
+def solution(X, Y):
+    answer = ''
+    
+    X = sorted(list(X), reverse=True)
+    Y = sorted(list(Y), reverse=True)
+    
+    tmp = []
+    if len(X) <= len(Y):
+        for x in X:
+            if x in Y:
+                Y.remove(x)
+                tmp.append(x)
+    
+    if len(tmp) == 0:
+        return '-1'
+    else:
+        return str(int(''.join(tmp)))
+    
+def solution(X, Y):
+    from collections import Counter
+    
+    X = Counter(X)
+    Y = Counter(Y)
+    
+    answer = []
+    if len(X) <= len(Y):
+        for x in X:
+            if x in Y:
+                for _ in range(min(X[x], Y[x])):
+                    answer.append(x)
+    else:
+        for y in Y:
+            if y in X:
+                for _ in range(min(X[x], Y[x])):
+                    answer.append(y)
+                    
+    answer = sorted([int(n) for n in answer], reverse=True)
+    answer = [str(n) for n in answer]
+
+    if len(answer) == 0:
+        return '-1'
+    else:
+        return str(int(''.join(answer)))
+    
+def solution(X, Y):
+    answer = ''
+    nums = sorted(list(set(X) & set(Y)),reverse=True)
+    
+    if len(nums) == 0:
+        return '-1'
+    elif len(nums) == nums.count('0'):
+        return '0'
+    
+    for n in nums:
+        answer += n * (min(X.count(n), Y.count(n)))
+        
+    return answer
