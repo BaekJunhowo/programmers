@@ -42,6 +42,7 @@ def solution(friends, gifts):
 
     answer = [0] * n
     gift_score = answer.copy()
+    
     lst = [[0] * n for _ in range(n)]
     idx_dict = {f: i for i, f in enumerate(friends)}
     
