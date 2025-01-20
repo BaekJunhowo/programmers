@@ -1,0 +1,70 @@
+def solution(friends, gifts):
+    answer = [0] * len(friends)
+    gift_score = answer.copy()
+    
+    idx_dict = {}
+    for i, f in enumerate(friends):
+        idx_dict[f] = i
+
+    lst = [[0] * len(friends) for _ in range(len(friends))]
+    
+    for gift in gifts:
+        f = gift.split()[0]
+        gifted = gift.split()[1]
+        
+        row = idx_dict[f]
+        col = idx_dict[gifted]
+        lst[row][col] += 1
+        
+        gift_score[row] += 1
+        gift_score[col] -= 1
+    
+    for i in range(len(lst)):
+        for j in range(i + 1, len(lst)):
+            if i == j:
+                continue
+
+            if lst[i][j] < lst[j][i]:
+                answer[j] += 1
+            elif lst[i][j] > lst[j][i]:
+                answer[i] += 1
+            else:
+                if gift_score[i] > gift_score[j]:
+                    answer[i] += 1
+                elif gift_score[i] < gift_score[j]:
+                    answer[j] += 1
+
+    return max(answer)
+
+
+def solution(friends, gifts):
+    n = len(friends)
+
+    answer = [0] * n
+    gift_score = answer.copy()
+    lst = [[0] * n for _ in range(n)]
+    idx_dict = {f: i for i, f in enumerate(friends)}
+    
+    for gift in gifts:
+        f, gifted = gift.split()
+        
+        row = idx_dict[f]
+        col = idx_dict[gifted]
+        lst[row][col] += 1
+        
+        gift_score[row] += 1
+        gift_score[col] -= 1
+    
+    for i in range(n):
+        for j in range(i + 1, n):
+            if lst[i][j] < lst[j][i]:
+                answer[j] += 1
+            elif lst[i][j] > lst[j][i]:
+                answer[i] += 1
+            else:
+                if gift_score[i] > gift_score[j]:
+                    answer[i] += 1
+                elif gift_score[i] < gift_score[j]:
+                    answer[j] += 1
+
+    return max(answer)
