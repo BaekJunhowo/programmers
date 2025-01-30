@@ -19,3 +19,19 @@
  - [ ] 카드뭉치
  - [ ] 크레인 인형뽑기 게임
  - [ ] 키패드 누르기
+
+
+## Library
+1. collectoins
+   - deque
+   - Counter
+2. itertools
+   - combinations
+   - permutations
+3. heapq
+4. math
+   - gcd
+   - factorial
+   - ceil / floor
+5. functools
+   - reduce
