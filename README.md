@@ -52,7 +52,7 @@
     - ceil / floor
 5. functools
     - reduce
-
+    - 
 
 ## Ascii code
 65 ~ 90
