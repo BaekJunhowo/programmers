@@ -1,6 +1,6 @@
+import glob
 import os
 import re
-import glob
 
 
 def extract_numbered_patterns_without_bold(folder_path='.'):

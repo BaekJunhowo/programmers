@@ -73,5 +73,7 @@
 
 ## etc
 divmod(a, b)
+
 str.split('')
+
 ''.join(str)
